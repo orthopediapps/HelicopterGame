@@ -17,16 +17,16 @@ public class SpawnSailors : MonoBehaviour
 
         if (!sailorSpawned)
         {
-            StartCoroutine(spawnTimer());
+            StartCoroutine(SpawnTimer());
         }
     }
-    IEnumerator spawnTimer()
+    IEnumerator SpawnTimer()
     {
-        spawnNewSailor();
+        SpawnNewSailor();
         yield return new WaitForSeconds(spawnInterval);
         sailorSpawned = false;
     }
-    public void spawnNewSailor()
+    public void SpawnNewSailor()
     {
         Instantiate(peoplePrefabs[index], transform.position + new Vector3(index,0, spawnInterval), transform.rotation);
         sailorSpawned = true;

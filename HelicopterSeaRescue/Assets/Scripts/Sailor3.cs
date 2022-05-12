@@ -6,8 +6,12 @@ using UnityEngine;
 public class Sailor3 : DrownTimer
 {
     // Start is called before the first frame update
-    
-    public override void checkRemainingTime()
+    private void Update()
+    {
+
+    }
+
+    public override void CheckRemainingTime()
     {
         // POLYMORPHISM
 

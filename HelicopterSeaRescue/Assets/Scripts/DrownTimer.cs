@@ -22,12 +22,12 @@ public class DrownTimer : MonoBehaviour
     void Update()
     {
         timeRemaining = Time.time - startTime;
-        checkRemainingTime();
-        checkIfSafe();
+        CheckRemainingTime();
+        CheckIfSafe();
     }
 
     //INHERITANCE
-    public virtual void checkRemainingTime()
+    public virtual void CheckRemainingTime()
     {
         timeToDeath = 10f;
         if (!catchedSailor.catchSailor && (timeRemaining > timeToDeath))
@@ -42,7 +42,7 @@ public class DrownTimer : MonoBehaviour
         }
     }
 
-    public void checkIfSafe()
+    public void CheckIfSafe()
     {
         if (sailorIsSafe)
         {

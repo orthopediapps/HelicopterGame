@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private int limits = 850;
     public GameObject rope;
-
+    private DrownTimer drownTimer;
 
     void Update()
     {
@@ -77,5 +77,10 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -limits);
         }
+    }
+    public void UnloadSailor()
+    {
+
+
     }
 }
