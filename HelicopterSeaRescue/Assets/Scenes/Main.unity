@@ -8503,7 +8503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebc383cddae143358b13fae92f3009a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 3000
 --- !u!114 &1962101278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8516,7 +8515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb292786fb4794f8caed7fa7d16427bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 3000
 --- !u!4 &1962101281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 478116, guid: 670c6e451250ee7448bb1a36fb0e6647, type: 3}
@@ -8537,7 +8535,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &1962101286
 BoxCollider:
   m_ObjectHideFlags: 0

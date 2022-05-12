@@ -1910,6 +1910,7 @@ MonoBehaviour:
   timeToDeath: 0
   timeRemaining: 0
   catchedSailor: {fileID: 0}
+  sailorIsSafe: 0
 --- !u!65 &4419689987791437386
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1918,7 +1919,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605862203301000596}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.6435509, y: 3.444975, z: 1}

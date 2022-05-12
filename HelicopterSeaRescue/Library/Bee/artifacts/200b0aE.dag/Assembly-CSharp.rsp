@@ -349,13 +349,13 @@
 "Assets/Scripts/DrownTimer.cs"
 "Assets/Scripts/FollowPlayer.cs"
 "Assets/Scripts/GrappleDown.cs"
+"Assets/Scripts/helicopter anim scripts/PropellerTurn.cs"
+"Assets/Scripts/helicopter anim scripts/TailTurn.cs"
 "Assets/Scripts/PlayerController.cs"
-"Assets/Scripts/PropellerTurn.cs"
 "Assets/Scripts/RopeManager.cs"
 "Assets/Scripts/sailor2.cs"
 "Assets/Scripts/Sailor3.cs"
 "Assets/Scripts/SpawnSailors.cs"
-"Assets/Scripts/TailTurn.cs"
 -langversion:9.0
 
 /deterministic

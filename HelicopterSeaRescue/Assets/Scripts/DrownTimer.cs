@@ -8,6 +8,8 @@ public class DrownTimer : MonoBehaviour
     public float timeToDeath;
     public float timeRemaining;
     public GrappleDown catchedSailor;
+    public bool sailorIsSafe = false;
+    
 
 
     void Awake()
@@ -21,6 +23,7 @@ public class DrownTimer : MonoBehaviour
     {
         timeRemaining = Time.time - startTime;
         checkRemainingTime();
+        checkIfSafe();
     }
 
     //INHERITANCE
@@ -30,7 +33,7 @@ public class DrownTimer : MonoBehaviour
         if (!catchedSailor.catchSailor && (timeRemaining > timeToDeath))
         {
         Destroy(gameObject);
-        
+        //ADD ONE SAILOR TO DEATH COUNT
         }
         if(catchedSailor.catchSailor)
         {
@@ -39,5 +42,13 @@ public class DrownTimer : MonoBehaviour
         }
     }
 
+    public void checkIfSafe()
+    {
+        if (sailorIsSafe)
+        {
+            Destroy(gameObject);
+            //ADD ONE SAVED SAILOR TO COUNTER
+        }
+    }
     
 }

@@ -67,7 +67,7 @@ public class GrappleDown : MonoBehaviour
         if (fullyExtended && playerController.grappleIsDown)
         {
             zOffset = zOffset - 0.1f;
-            if (ball.transform.position.y >= playerController.transform.position.y)
+            if (ball.transform.position.y > playerController.transform.position.y)
             {
                 zOffset = 0;
                 fullyExtended = false;
