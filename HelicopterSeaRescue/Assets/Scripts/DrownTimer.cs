@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class DrownTimer : MonoBehaviour
 {
-    private float startTime;
+    public float startTime;
     public float timeToDeath;
     public float timeRemaining;
     public GrappleDown catchedSailor;
     public bool sailorIsSafe = false;
+    [SerializeField]
+    private HealthBar healthBar;
     
 
 
@@ -16,20 +18,23 @@ public class DrownTimer : MonoBehaviour
     {
         startTime = Time.time;
         catchedSailor = GameObject.Find("floaty").GetComponent<GrappleDown>();
+        healthBar.UpdateTimeToDrown(1.0f, 1.0f);
     }
 
-   
+
     void Update()
     {
         timeRemaining = Time.time - startTime;
         CheckRemainingTime();
         CheckIfSafe();
-    }
+        healthBar.UpdateTimeToDrown(timeRemaining, timeToDeath);
+        
 
+    }
     //INHERITANCE
     public virtual void CheckRemainingTime()
     {
-        timeToDeath = 10f;
+        timeToDeath = 30f;
         if (!catchedSailor.catchSailor && (timeRemaining > timeToDeath))
         {
         Destroy(gameObject);
@@ -37,7 +42,7 @@ public class DrownTimer : MonoBehaviour
         }
         if(catchedSailor.catchSailor)
         {
-            Debug.Log("hi  you saved him");
+      
             transform.position = catchedSailor.ball.transform.position;
         }
     }

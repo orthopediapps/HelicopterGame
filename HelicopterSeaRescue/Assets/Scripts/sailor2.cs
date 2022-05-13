@@ -7,19 +7,23 @@ using UnityEngine;
 public class sailor2 : DrownTimer
 {
     // Start is called before the first frame update
-    private void Update()
-    {
-        
-    }
 
+    
     public override void CheckRemainingTime()
     {
 
         //  POLYMORPHISM
-        timeToDeath = 3.0f;
-        if (timeRemaining > timeToDeath)
+        timeToDeath = 45f;
+        if (!catchedSailor.catchSailor && (timeRemaining > timeToDeath))
         {
             Destroy(gameObject);
+            //ADD ONE SAILOR TO DEATH COUNT
         }
+        if (catchedSailor.catchSailor)
+        {
+       
+            transform.position = catchedSailor.ball.transform.position;
+        }
+
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - helipad
   - sailor
   - powerUp
+  - float
   layers:
   - Default
   - TransparentFX

@@ -7,8 +7,8 @@ public class GrappleDown : MonoBehaviour
     private PlayerController playerController;
     public GameObject rope;
     public GameObject ball;
-    public bool touchedSth = false;
-    public bool fullyExtended = false;
+    private bool touchedSth = false;
+    private bool fullyExtended = false;
     public bool catchSailor = false;
     public bool catchPowerUp = false;
     public float zOffset = 0f;
@@ -35,12 +35,12 @@ public class GrappleDown : MonoBehaviour
         }
         if (other.gameObject.CompareTag("sailor"))
         {
-            touchedSth = true;
+           
             catchSailor = true;
         }
         if (other.gameObject.CompareTag("powerUp"))
         {
-            touchedSth = true;
+            
             catchPowerUp = true;
         }
 
@@ -58,20 +58,23 @@ public class GrappleDown : MonoBehaviour
 
             if ((ball.transform.position.y < (playerController.transform.position.y - 10)) || touchedSth)
             {
-                zOffset = 10;
+                
                 fullyExtended = true;
                 playerController.grappleIsDown = false;
+                
             }
         }
 
         if (fullyExtended && playerController.grappleIsDown)
         {
+            
             zOffset = zOffset - 0.1f;
-            if (ball.transform.position.y > playerController.transform.position.y)
+            if (ball.transform.position.y >= playerController.transform.position.y)
             {
                 zOffset = 0;
                 fullyExtended = false;
                 playerController.grappleIsDown = false;
+                touchedSth = false;
             }
         }
     }

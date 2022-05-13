@@ -349,6 +349,7 @@
 "Assets/Scripts/DrownTimer.cs"
 "Assets/Scripts/FollowPlayer.cs"
 "Assets/Scripts/GrappleDown.cs"
+"Assets/Scripts/HealthBar.cs"
 "Assets/Scripts/helicopter anim scripts/PropellerTurn.cs"
 "Assets/Scripts/helicopter anim scripts/TailTurn.cs"
 "Assets/Scripts/PlayerController.cs"
