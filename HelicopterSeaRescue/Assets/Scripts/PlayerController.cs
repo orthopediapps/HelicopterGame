@@ -20,12 +20,18 @@ public class PlayerController : MonoBehaviour
     private int limits = 850;
     public GameObject rope;
     private DrownTimer drownTimer;
+    public AudioClip wincher;
+    public AudioSource ropeMotor;
 
+     
+    
     void Update()
     {
         KeyControls();
         HeliMove();
         FlyRange();
+        
+        
     }
 
 
@@ -54,8 +60,12 @@ public class PlayerController : MonoBehaviour
 
         if (releaseGrapple)
         {
+            ropeMotor.PlayOneShot(wincher, 0.5F);
             grappleIsDown = true;
             rope.SetActive(true);
+
+            
+            
         }
 
     }
@@ -78,9 +88,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y, -limits);
         }
     }
-    public void UnloadSailor()
-    {
-
-
-    }
+    
+    
+    
 }

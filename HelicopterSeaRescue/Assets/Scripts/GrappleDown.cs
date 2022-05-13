@@ -8,12 +8,14 @@ public class GrappleDown : MonoBehaviour
     public GameObject rope;
     public GameObject ball;
     private bool touchedSth = false;
-    private bool fullyExtended = false;
+    public bool fullyExtended = false;
     public bool catchSailor = false;
     public bool catchPowerUp = false;
     public float zOffset = 0f;
     public FixedJoint FJ;
     private GameObject rescuedSailor;
+    //public AudioClip wincher;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -26,10 +28,11 @@ public class GrappleDown : MonoBehaviour
     void Update()
     {
         SetBallPosition();
-        if (catchSailor)
+        if (catchSailor && rescuedSailor !=null)
         {
             rescuedSailor.transform.position = ball.transform.position + new Vector3(0, 0, -1);
         }
+        
     }
 
 
@@ -73,13 +76,14 @@ public class GrappleDown : MonoBehaviour
 
         {
             zOffset = zOffset + 0.1f;
-
+            
 
             if ((ball.transform.position.y < (playerController.transform.position.y - 10)) || touchedSth)
             {
                 
                 fullyExtended = true;
                 playerController.grappleIsDown = false;
+                
                 
             }
         }
@@ -88,12 +92,14 @@ public class GrappleDown : MonoBehaviour
         {
             
             zOffset = zOffset - 0.1f;
+            
             if (ball.transform.position.y >= playerController.transform.position.y)
             {
                 zOffset = 0;
                 fullyExtended = false;
                 playerController.grappleIsDown = false;
                 touchedSth = false;
+                
             }
         }
     }
