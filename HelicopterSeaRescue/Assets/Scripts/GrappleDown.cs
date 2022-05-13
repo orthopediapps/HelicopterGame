@@ -14,7 +14,10 @@ public class GrappleDown : MonoBehaviour
     public float zOffset = 0f;
     public FixedJoint FJ;
     private GameObject rescuedSailor;
-    //public AudioClip wincher;
+    public AudioSource ballAudio;
+    public AudioClip saved;
+    public AudioClip deployed;
+    public AudioClip dead;
     
 
     // Start is called before the first frame update
@@ -49,17 +52,19 @@ public class GrappleDown : MonoBehaviour
            /* FJ = ball.AddComponent<FixedJoint>();
             FJ.connectedBody = other.gameObject.GetComponent<Rigidbody>();*/
             rescuedSailor = other.gameObject;
+            ballAudio.PlayOneShot(saved);
            
            
             
         }
 
         if (other.gameObject.CompareTag("helipad") && catchSailor)
-        {
+        {    ballAudio.PlayOneShot(deployed);
             if (rescuedSailor != null)
             {
                 Destroy(rescuedSailor);
                 catchSailor = false;
+                
             }
             //Destroy(FJ);
             Debug.Log("landed");
@@ -102,6 +107,11 @@ public class GrappleDown : MonoBehaviour
                 
             }
         }
+    }
+
+    public void sailorDied()
+    {
+        ballAudio.PlayOneShot(dead, 0.5F);
     }
 
 

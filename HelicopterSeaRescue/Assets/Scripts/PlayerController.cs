@@ -63,9 +63,7 @@ public class PlayerController : MonoBehaviour
             ropeMotor.PlayOneShot(wincher, 0.5F);
             grappleIsDown = true;
             rope.SetActive(true);
-
-            
-            
+ 
         }
 
     }

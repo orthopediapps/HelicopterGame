@@ -10,6 +10,9 @@ public class SpawnSailors : MonoBehaviour
     bool sailorSpawned = false;
     int coordx;
     int coordz;
+    public int sailorsSaved;
+    public int sailorsDead;
+    public int score;
     
 
     // Update is called once per frame

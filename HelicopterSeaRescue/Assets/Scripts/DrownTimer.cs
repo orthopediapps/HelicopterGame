@@ -35,13 +35,20 @@ public class DrownTimer : MonoBehaviour
     public virtual void CheckRemainingTime()
     {
         timeToDeath = 30f;
-        if (timeRemaining > timeToDeath)
-        {
-        Destroy(gameObject);
-        //ADD ONE SAILOR TO DEATH COUNT
+        DieSailorDie();
+
+
         }
 
+    
+    public void DieSailorDie()
+{
+    if (timeRemaining > timeToDeath)
+    {
+        Destroy(gameObject);
+            catchedSailor.sailorDied();
     }
+}
 
     
     

@@ -13,11 +13,7 @@ public class Sailor3 : DrownTimer
         // POLYMORPHISM
 
         timeToDeath = 60f;
-        if (timeRemaining > timeToDeath)
-        {
-            Destroy(gameObject);
-            //ADD ONE SAILOR TO DEATH COUNT
-        }
+        DieSailorDie();
 
     }
 }
