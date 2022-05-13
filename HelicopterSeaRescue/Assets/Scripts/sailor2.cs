@@ -14,16 +14,12 @@ public class sailor2 : DrownTimer
 
         //  POLYMORPHISM
         timeToDeath = 45f;
-        if (!catchedSailor.catchSailor && (timeRemaining > timeToDeath))
+        if (timeRemaining > timeToDeath)
         {
             Destroy(gameObject);
             //ADD ONE SAILOR TO DEATH COUNT
         }
-        if (catchedSailor.catchSailor)
-        {
-       
-            transform.position = catchedSailor.ball.transform.position;
-        }
+
 
     }
 }

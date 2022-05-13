@@ -8,6 +8,8 @@ public class SpawnSailors : MonoBehaviour
     public int index;
     public int spawnInterval;
     bool sailorSpawned = false;
+    int coordx;
+    int coordz;
     
 
     // Update is called once per frame
@@ -28,13 +30,15 @@ public class SpawnSailors : MonoBehaviour
     }
     public void SpawnNewSailor()
     {
-        Instantiate(peoplePrefabs[index], transform.position + new Vector3(index,0, spawnInterval), transform.rotation);
+        coordx = Random.Range(0, 301);
+        coordz = Random.Range(0, 301);
+        Instantiate(peoplePrefabs[index], new Vector3(coordx, 0, coordz), transform.rotation);
         sailorSpawned = true;
     }
 
     private void SetRandoms()
     {
-        spawnInterval = Random.Range(5, 10);
+        spawnInterval = Random.Range(10, 60);
         index = Random.Range(0, 3);
     }
 }

@@ -26,7 +26,7 @@ public class DrownTimer : MonoBehaviour
     {
         timeRemaining = Time.time - startTime;
         CheckRemainingTime();
-        CheckIfSafe();
+        
         healthBar.UpdateTimeToDrown(timeRemaining, timeToDeath);
         
 
@@ -35,25 +35,14 @@ public class DrownTimer : MonoBehaviour
     public virtual void CheckRemainingTime()
     {
         timeToDeath = 30f;
-        if (!catchedSailor.catchSailor && (timeRemaining > timeToDeath))
+        if (timeRemaining > timeToDeath)
         {
         Destroy(gameObject);
         //ADD ONE SAILOR TO DEATH COUNT
         }
-        if(catchedSailor.catchSailor)
-        {
-      
-            transform.position = catchedSailor.ball.transform.position;
-        }
+
     }
 
-    public void CheckIfSafe()
-    {
-        if (sailorIsSafe)
-        {
-            Destroy(gameObject);
-            //ADD ONE SAVED SAILOR TO COUNTER
-        }
-    }
+    
     
 }

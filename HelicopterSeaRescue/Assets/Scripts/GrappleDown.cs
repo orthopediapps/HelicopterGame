@@ -12,7 +12,9 @@ public class GrappleDown : MonoBehaviour
     public bool catchSailor = false;
     public bool catchPowerUp = false;
     public float zOffset = 0f;
-    
+    public FixedJoint FJ;
+    private GameObject rescuedSailor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,10 @@ public class GrappleDown : MonoBehaviour
     void Update()
     {
         SetBallPosition();
+        if (catchSailor)
+        {
+            rescuedSailor.transform.position = ball.transform.position + new Vector3(0, 0, -1);
+        }
     }
 
 
@@ -35,14 +41,27 @@ public class GrappleDown : MonoBehaviour
         }
         if (other.gameObject.CompareTag("sailor"))
         {
-           
+           if (rescuedSailor && !catchSailor)
             catchSailor = true;
-        }
-        if (other.gameObject.CompareTag("powerUp"))
-        {
+           /* FJ = ball.AddComponent<FixedJoint>();
+            FJ.connectedBody = other.gameObject.GetComponent<Rigidbody>();*/
+            rescuedSailor = other.gameObject;
+           
+           
             
-            catchPowerUp = true;
         }
+
+        if (other.gameObject.CompareTag("helipad") && catchSailor)
+        {
+            if (rescuedSailor != null)
+            {
+                Destroy(rescuedSailor);
+                catchSailor = false;
+            }
+            //Destroy(FJ);
+            Debug.Log("landed");
+        }
+        
 
     }
 

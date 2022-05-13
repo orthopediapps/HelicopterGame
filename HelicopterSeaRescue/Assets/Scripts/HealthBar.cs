@@ -11,8 +11,8 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     public void UpdateTimeToDrown(float timeRemaining, float timeToDeath)
     {
-       
-        healthBarSprite.fillAmount = 1 - (timeRemaining/timeToDeath);
+
+        healthBarSprite.fillAmount = 1 - (timeRemaining / timeToDeath);
         healthBarSprite.color = healthColor.Evaluate(healthBarSprite.fillAmount);
      
     }
