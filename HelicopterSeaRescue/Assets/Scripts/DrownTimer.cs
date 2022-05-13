@@ -34,7 +34,7 @@ public class DrownTimer : MonoBehaviour
     //INHERITANCE
     public virtual void CheckRemainingTime()
     {
-        timeToDeath = 30f;
+        timeToDeath = 50f;
         DieSailorDie();
 
 

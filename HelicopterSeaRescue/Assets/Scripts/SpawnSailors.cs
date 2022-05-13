@@ -32,8 +32,8 @@ public class SpawnSailors : MonoBehaviour
     }
     public void SpawnNewSailor()
     {
-        coordx = Random.Range(0, 301);
-        coordz = Random.Range(0, 301);
+        coordx = Random.Range(0, 150);
+        coordz = Random.Range(0, 150);
         Instantiate(peoplePrefabs[index], new Vector3(coordx, 0, coordz), transform.rotation);
         sailorSpawned = true;
         

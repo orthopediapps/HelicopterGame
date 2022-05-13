@@ -8,6 +8,8 @@ public class PowerUp : MonoBehaviour
     private bool hasPowerUp = false;
     private PlayerController playerController;
     private int newSpeed;
+    public AudioSource powerUpAudio;
+    public AudioClip speedPowerUp;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,7 @@ public class PowerUp : MonoBehaviour
             hasPowerUp = true;
             Destroy(gameObject);
             StartCoroutine(AddPowerUp());
-            
+            powerUpAudio.PlayOneShot(speedPowerUp);
         }
     }
 

@@ -12,7 +12,7 @@ public class Sailor3 : DrownTimer
     {
         // POLYMORPHISM
 
-        timeToDeath = 60f;
+        timeToDeath = 80f;
         DieSailorDie();
 
     }
