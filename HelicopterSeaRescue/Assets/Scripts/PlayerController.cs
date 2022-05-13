@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         set
         {
             m_forwardSpeed = value;
-            if (value > 80)
+            if (value > 150)
             {
                 Debug.LogError("No te pases, fitipaldi!");
                 

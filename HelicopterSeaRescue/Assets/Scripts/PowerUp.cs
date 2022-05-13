@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-  private PlayerController playerController;
+    [SerializeField]
+    private bool hasPowerUp = false;
+    private PlayerController playerController;
+    private int newSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +22,24 @@ public class PowerUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if ((other.CompareTag("Player")|| other.CompareTag("float")) && !hasPowerUp)
         {
-            playerController.forwardSpeed = 100;
+            hasPowerUp = true;
+            Destroy(gameObject);
+            StartCoroutine(AddPowerUp());
+            
         }
+    }
+
+    IEnumerator AddPowerUp()
+    {
+        
+         newSpeed = Random.Range(100, 200);
+        playerController.forwardSpeed = newSpeed;
+        yield return new WaitForSeconds(60.0F);
+        hasPowerUp = false;
+        newSpeed = 40;
+        
+
     }
 }

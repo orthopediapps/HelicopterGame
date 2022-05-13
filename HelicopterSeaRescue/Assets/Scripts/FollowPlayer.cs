@@ -6,7 +6,7 @@ public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
     private int limits = 100;
-    private Vector3 offset = new (0,30, -80);
+    private Vector3 offset = new (0,13, -35);
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,7 @@ public class FollowPlayer : MonoBehaviour
     {
         if (player.transform.position.z > limits)
         {
-            transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 30, limits - 80);
+            transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 13, limits - 35);
         }
 
         else

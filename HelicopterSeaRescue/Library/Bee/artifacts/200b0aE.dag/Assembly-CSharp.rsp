@@ -357,6 +357,7 @@
 "Assets/Scripts/RopeManager.cs"
 "Assets/Scripts/sailor2.cs"
 "Assets/Scripts/Sailor3.cs"
+"Assets/Scripts/Score.cs"
 "Assets/Scripts/SpawnSailors.cs"
 -langversion:9.0
 

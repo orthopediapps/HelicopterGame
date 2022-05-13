@@ -18,12 +18,17 @@ public class GrappleDown : MonoBehaviour
     public AudioClip saved;
     public AudioClip deployed;
     public AudioClip dead;
+    public int safe;
+    public int drowned;
+    
     
 
     // Start is called before the first frame update
     void Start()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+       
+
 
     }
 
@@ -36,6 +41,7 @@ public class GrappleDown : MonoBehaviour
             rescuedSailor.transform.position = ball.transform.position + new Vector3(0, 0, -1);
         }
         
+      
     }
 
 
@@ -49,8 +55,6 @@ public class GrappleDown : MonoBehaviour
         {
            if (rescuedSailor && !catchSailor)
             catchSailor = true;
-           /* FJ = ball.AddComponent<FixedJoint>();
-            FJ.connectedBody = other.gameObject.GetComponent<Rigidbody>();*/
             rescuedSailor = other.gameObject;
             ballAudio.PlayOneShot(saved);
            
@@ -64,10 +68,9 @@ public class GrappleDown : MonoBehaviour
             {
                 Destroy(rescuedSailor);
                 catchSailor = false;
-                
+                safe++;
             }
-            //Destroy(FJ);
-            Debug.Log("landed");
+           
         }
         
 
@@ -112,6 +115,8 @@ public class GrappleDown : MonoBehaviour
     public void sailorDied()
     {
         ballAudio.PlayOneShot(dead, 0.5F);
+        drowned++;
+        
     }
 
 

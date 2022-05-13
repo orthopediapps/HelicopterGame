@@ -10,9 +10,8 @@ public class SpawnSailors : MonoBehaviour
     bool sailorSpawned = false;
     int coordx;
     int coordz;
-    public int sailorsSaved;
-    public int sailorsDead;
-    public int score;
+    public int inTheWater =0;
+   
     
 
     // Update is called once per frame
@@ -25,7 +24,7 @@ public class SpawnSailors : MonoBehaviour
             StartCoroutine(SpawnTimer());
         }
     }
-    IEnumerator SpawnTimer()
+   public IEnumerator SpawnTimer()
     {
         SpawnNewSailor();
         yield return new WaitForSeconds(spawnInterval);
@@ -37,11 +36,17 @@ public class SpawnSailors : MonoBehaviour
         coordz = Random.Range(0, 301);
         Instantiate(peoplePrefabs[index], new Vector3(coordx, 0, coordz), transform.rotation);
         sailorSpawned = true;
+        
+        if (index != 3)
+        {
+          inTheWater++; 
+        }
+        
     }
 
     private void SetRandoms()
     {
         spawnInterval = Random.Range(10, 60);
-        index = Random.Range(0, 3);
+        index = Random.Range(0, 4);
     }
 }
