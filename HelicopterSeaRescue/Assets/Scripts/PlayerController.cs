@@ -6,10 +6,37 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private float verticalSpeed = 0.1f;
+
+
+    //  ENCAPSULATION
+
+
     [SerializeField]
-    private float forwardSpeed = 40;
+    private float m_forwardSpeed = 40;
+    public float forwardSpeed
+    {
+        get { return m_forwardSpeed; }
+        set
+        {
+            m_forwardSpeed = value;
+            if (value > 80)
+            {
+                Debug.LogError("No te pases, fitipaldi!");
+                
+            }
+            else
+            {
+                m_forwardSpeed = value;
+            }
+        }
+    }
+
+
+    // END OF ENCAPSULATION
+
+
     [SerializeField]
-    private float turnSpeed = 70;
+    private float turnSpeed = 70.0f;
     private bool upThrust;
     private bool downThrust;
     private float forwardThrust;
@@ -23,6 +50,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip wincher;
     public AudioSource ropeMotor;
 
+    
+
      
     
     void Update()
@@ -30,9 +59,11 @@ public class PlayerController : MonoBehaviour
         KeyControls();
         HeliMove();
         FlyRange();
+        m_forwardSpeed = 40;
         
         
     }
+    
 
 
     // ABSTRACTION. Moved all keys and axis inputs to KeyControls() method.
